@@ -1,30 +1,79 @@
 import os
-
 from flask import Flask, render_template, request
+import random, copy
 
 app = Flask("my_first_app")
 
-@app.route("/")
-def say_hello():
-    return render_template("index.html")
+test_questions = {
+	'Which country has the most species of snake': ['India', 'Brazil', 'Australia'],
+	'Which species is the largest snake measured in captivity': ['Reticulated Python','Boa Constrictor','Green Anaconda'],
+	'Which of these python species is found in Africa': ['Ball Python','Carpet Python', 'Reticulated Python'],
+	'Which snake is the Kingsnake often confused with due to its bright colours': ['Coral Snake', 'Boomslang', 'Green Tree Python'],
+	'How do pythons kill their prey': ['Constriction', 'Venom', 'Ambush'],
+	'When Snakes on a Plane was released, two live snakes were set free during a showing in an Arizona cinema, which species were they': ['Western Diamondback Rattlesnake', 'Horned Rattlesnake', 'Pacific Rattlesnake'],
+	'What colour pattern do Milk Snakes show': ['White/Black/Red Stripes','Red/Black Diamonds', 'Yellow/Black/White Stripes'],
+	"Which snake isn't found in the UK": ['Worm Snake','Common Adder','Grass Snake'],
+	'What is the average lifespan of a Royal Python': ['30 years', '20 years', '25 years'],
+	'What species was the snake Britney Spears performed with at the 2001 MTV Video Music Awards': ['Albino Burmese Python', 'Rainbow Boa', 'Eyelash Viper']
+}
 
-@app.route("/<name>")
-def say_hello_to(name):
-    return render_template("hello.html", user=name)
+#print(test_questions)
 
-@app.route("/feedback", methods=["POST"])
-def get_feedback():
-    data = request.values
+questions = copy.deepcopy(test_questions)
 
-    return render_template("feedback.html", form_data=data)
 
-"""
-This piece of logic checks whether you are running the app locally or on Heroku
-(make an account at https://www.heroku.com/ before the deployment session!). When
-running the app on Heroku, the PORT environment/config variable is pre-populated by
-Heroku to tell our app the correct port to run on.
-"""
-if "PORT" in os.environ:
-    app.run(host="0.0.0.0", port=int(os.environ["PORT"]))
-else:
-    app.run(debug=True)
+def shuffle(q):
+	selected_keys = []
+	i = 0
+	while i < len(q):
+		current_selection = random.choice(q.keys())
+		if current_selection not in selected_keys:
+			selected_keys.append(current_selection)
+			i = i+1
+	return selected_keys
+
+#for i in questions:
+#	random.shuffle(questions[i])
+#	this_question = test_questions[i]
+#	print('{}? {} Correct Answer is: {}'.format(i,questions[i], this_question[0]))
+
+
+@app.route('/quiz')
+def quiz():
+	for i in questions:
+		random.shuffle(questions[i])
+	return render_template('quiz.html', q = questions, o = test_questions)
+
+
+@app.route('/submit_quiz')
+def submit_quiz():
+	return render_template('submit_quiz.html')
+
+
+if __name__ == '__main__':
+	app.run(debug=True)
+    
+#@app.route("/")
+#def say_hello():
+#    return render_template("index.html")
+
+#@app.route("/<name>")
+#def say_hello_to(name):
+#    return render_template("hello.html", user=name)
+
+#@app.route("/feedback", methods=["POST"])
+#def get_feedback():
+#    data = request.values
+
+#    return render_template("feedback.html", form_data=data)
+
+#"""
+#This piece of logic checks whether you are running the app locally or on Heroku
+#(make an account at https://www.heroku.com/ before the deployment session!). When
+#running the app on Heroku, the PORT environment/config variable is pre-populated by
+#Heroku to tell our app the correct port to run on.
+#"""
+#if "PORT" in os.environ:
+#    app.run(host="0.0.0.0", port=int(os.environ["PORT"]))
+#else:
+#    app.run(debug=True)
