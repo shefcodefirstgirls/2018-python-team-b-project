@@ -78,7 +78,17 @@
 
     <div class="container">
 
-      <h4> Quiz code here</h4>
+      <form action='/submit_quiz' method='POST'>
+            <ol>
+                {% for i in q %}
+                    <li><u>{{i}}</u>?</li>
+                    {% for j in q[i] %}
+                        <input type='radio' value='{{j}}' name='{{i}}' />{{j}}
+                    {% endfor %}
+                {% endfor %}
+            </ol>
+            <input type="submit" value="submit" /a>
+        </form>
 
     </div>
 
