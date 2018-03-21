@@ -90,13 +90,13 @@ if __name__ == '__main__':
 
 #    return render_template("feedback.html", form_data=data)
 
-#"""
-#This piece of logic checks whether you are running the app locally or on Heroku
-#(make an account at https://www.heroku.com/ before the deployment session!). When
-#running the app on Heroku, the PORT environment/config variable is pre-populated by
-#Heroku to tell our app the correct port to run on.
-#"""
-#if "PORT" in os.environ:
-#    app.run(host="0.0.0.0", port=int(os.environ["PORT"]))
-#else:
-#    app.run(debug=True)
+"""
+This piece of logic checks whether you are running the app locally or on Heroku
+(make an account at https://www.heroku.com/ before the deployment session!). When
+running the app on Heroku, the PORT environment/config variable is pre-populated by
+Heroku to tell our app the correct port to run on.
+"""
+if "PORT" in os.environ:
+   app.run(host="0.0.0.0", port=int(os.environ["PORT"]))
+else:
+   app.run(debug=True)
