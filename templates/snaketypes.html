@@ -42,9 +42,6 @@
                     <li>
                         <a href="quiz">Quiz</a>
                     </li>
-                    <li>
-                        <a href="submit_quiz">Share</a>
-                    </li>
                     <li class="active">
                         <a href="snakes">Snakes</a>
 
@@ -92,15 +89,18 @@ list.options[list.selectedIndex].value}
 <SELECT>
 <OPTION VALUE=""
 >Browse snake species here
-<OPTION VALUE="1" > Python
-<OPTION VALUE="2" > Boa Constrictor
-<OPTION VALUE="3" > Viper
-<OPTION VALUE="4" > Rattlesnake
-<OPTION VALUE="5"> Cobra
-<OPTION VALUE="6" >Anaconda
-<OPTION VALUE="7" > Worm Snake
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Python_(genus)" > Python
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Boa_constrictor" > Boa Constrictor
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Viperidae" > Viper
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Rattlesnake" > Rattlesnake
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Cobra"> Cobra
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Anaconda" >Anaconda
+      <OPTION VALUE="https://en.wikipedia.org/wiki/Scolecophidia" > Blind Snake
 </SELECT> <INPUT TYPE="button" VALUE="Go" onClick="jumpBox(this.form.elements[0])"> </FORM>
-  <p><a class="btn btn-primary" href="#">Favourite snakes</a></p>
+      <form action='/favsnake' method="POST">
+        <input name="text">
+        <input type="submit">
+      </form>
 </div>
 </div>
 
@@ -116,19 +116,19 @@ list.options[list.selectedIndex].value}
           <img class="img-circle" src="holder.js/100x100" alt="" width="100" height="100">
           <h3> Boa Constrictors live in hot tropical places</h3>
           <p>They catch their prey through ambush, which include birds, lizards, frogs and small mammals</p>
-          <p><a class="btn btn-default" href="#">Boa Constrictors</a></p>
+          <p><a class="btn btn-default" href="https://en.wikipedia.org/wiki/Boa_constrictor">Boa Constrictors</a></p>
         </div>
         <div class="col-sm-4 footer-blurb-item">
           <img class="img-circle" src="holder.js/100x100" alt="" width="100" height="100">
           <h3>Pythons are one of the largest snakes, although they are non-venomous</h3>
           <p>These amazing reptiles live in a wide variety of environments, including rainforests, savannas or deserts across Africa and Asia</p>
-          <p><a class="btn btn-default" href="#">Pythons</a></p>
+          <p><a class="btn btn-default" href="https://en.wikipedia.org/wiki/Python_(genus)">Pythons</a></p>
         </div>
         <div class="col-sm-4 footer-blurb-item">
           <img class="img-circle" src="holder.js/100x100" alt="" width="100" height="100">
           <h3>Cobras are a venomous snake</h3>
           <p>These snakes are known for their threatening neck hoods and hissing, which are defensive behaviours</p>
-          <p><a class="btn btn-default" href="#">Cobras</a></p>
+          <p><a class="btn btn-default" href="https://en.wikipedia.org/wiki/Cobra">Cobras</a></p>
         </div>
 
       </div>
