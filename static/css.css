@@ -1,0 +1,82 @@
+
+body {
+      background-image: url("david-clode-483879-unsplash.jpg");
+       background-size: 1300px 900px;
+       object-fit: scale-down;
+      background-repeat: no-repeat;
+       background-position: center;
+       background-attachment: fixed;
+}
+
+
+.container2 {
+  background-color: #c5ff49;
+  color: green;
+}
+
+.container1 {
+  background-color: #c5ff49;
+  color: white;
+}
+
+.container {
+  background-color: #c5ff49;
+  opacity: 0.75;
+
+}
+
+
+.navbar-toggle {
+    background-color: grey;
+}
+
+.icon-bar {
+  color: grey;
+  text-align: center;
+}
+
+h1 {
+  color: darkgreen;
+  text-align: center;
+  font-family: verdana;
+  font-size: 20px;
+}
+
+h2 {
+  font-family: verdana;
+  font-size: 20px;
+  color: darkblue;
+   text-align: center;
+   font-weight:bold;
+ }
+
+h3 {
+  font-family: verdana;
+  font-size: 20px;
+  color: darkblue;
+   text-align: center;
+   font-weight:bold;
+}
+
+ol {
+  font-family: verdana;
+  font-size: 20px;
+  color: darkblue;
+   text-align: left;
+  font-weight:bold;
+}
+
+ p {
+     text-align: center;
+     color: darkblue;
+     font-family: verdana;
+     font-size: 20px;
+     font-weight:bold
+ }
+
+ h4 {
+   text-align: center;
+   color: darkgreen;
+   font-family: verdana;
+   font-size: 20px;
+ }
