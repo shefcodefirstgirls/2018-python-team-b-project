@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request
 import random, copy
+from favouritesnake import collect_tweets
 
 app = Flask(__name__)
 
@@ -44,6 +45,9 @@ def quiz():
 		random.shuffle(questions[i])
 	return render_template('snakesquiz.html', q = questions, o = snake_questions)
 
+@app.route('/answers')
+def answers():
+	return render_template('answers.html')
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
@@ -59,6 +63,15 @@ def submit_quiz():
 @app.route('/snakes')
 def snaketypes():
 	return render_template('snaketypes.html')
+
+@app.route('/favsnake', methods=['POST'])
+def favsnake():
+	favourite = request.form['text']
+	tweets = collect_tweets(favourite)
+	tweet = tweets[0]
+	return render_template('test.html', tweet = tweet.text)
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
