@@ -10,44 +10,41 @@ body {
 
 
 .container2 {
-  background-color: #c5ff49;
-  color: green;
+  background-color: #003300;
+  color: #ffffff;
 }
 
 .container1 {
-  background-color: #c5ff49;
-  color: white;
+  background-color: #1b5e20;
+  color: #ffffff;
 }
 
 .container {
-  background-color: #c5ff49;
+  background-color: #4c8c4a;
   opacity: 0.75;
 
 }
 
 
 .navbar-toggle {
-    background-color: grey;
+    background-color: white;
+      color: white;
 }
 
-.icon-bar {
-  color: grey;
-  text-align: center;
-}
 
 h1 {
-  color: darkgreen;
+  color: white;
   text-align: center;
   font-family: verdana;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 h2 {
   font-family: verdana;
-  font-size: 20px;
-  color: darkblue;
+  font-size: 14px;
+  color: black;
    text-align: center;
-   font-weight:bold;
+   font-weight: bold;
  }
 
 h3 {
@@ -68,9 +65,9 @@ ol {
 
  p {
      text-align: center;
-     color: darkblue;
+     color: black;
      font-family: verdana;
-     font-size: 20px;
+     font-size: 12px;
      font-weight:bold
  }
 
