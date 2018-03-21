@@ -38,7 +38,7 @@ def shuffle(q):
 #	this_question = test_questions[i]
 #	print('{}? {} Correct Answer is: {}'.format(i,questions[i], this_question[0]))
 
-
+@app.route('/')
 @app.route('/quiz')
 def quiz():
 	for i in questions:
