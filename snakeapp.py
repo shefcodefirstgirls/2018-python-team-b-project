@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, request
 import random, copy
 
-app = Flask("my_first_app")
+app = Flask(__name__)
 
 test_questions = {
 	'Which country has the most species of snake': ['India', 'Brazil', 'Australia'],
@@ -45,9 +45,15 @@ def quiz():
 	return render_template('quiz.html', q = questions, o = test_questions)
 
 
-@app.route('/submit_quiz')
+@app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
-	return render_template('submit_quiz.html')
+	correct = 0
+	for i in snake_questions.keys():
+		answered = request.form[i]
+		if snake_questions[i][0] == answered:
+			correct = correct + 1
+			print(correct)
+	return render_template('submit_quiz.html', score = str(correct))
 
 
 if __name__ == '__main__':
