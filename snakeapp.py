@@ -4,7 +4,7 @@ import random, copy
 
 app = Flask(__name__)
 
-test_questions = {
+snake_questions = {
 	'Which country has the most species of snake': ['India', 'Brazil', 'Australia'],
 	'Which species is the largest snake measured in captivity': ['Reticulated Python','Boa Constrictor','Green Anaconda'],
 	'Which of these python species is found in Africa': ['Ball Python','Carpet Python', 'Reticulated Python'],
@@ -19,7 +19,7 @@ test_questions = {
 
 #print(test_questions)
 
-questions = copy.deepcopy(test_questions)
+questions = copy.deepcopy(snake_questions)
 
 
 def shuffle(q):
@@ -42,7 +42,7 @@ def shuffle(q):
 def quiz():
 	for i in questions:
 		random.shuffle(questions[i])
-	return render_template('quiz.html', q = questions, o = test_questions)
+	return render_template('snakesquiz.html', q = questions, o = snake_questions)
 
 
 @app.route('/submit_quiz', methods=['POST'])
@@ -53,7 +53,7 @@ def submit_quiz():
 		if snake_questions[i][0] == answered:
 			correct = correct + 1
 			print(correct)
-	return render_template('submit_quiz.html', score = str(correct))
+	return render_template('share.html', score = str(correct))
 
 
 if __name__ == '__main__':
