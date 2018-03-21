@@ -56,6 +56,10 @@ def submit_quiz():
 	return render_template('share.html', score = str(correct))
 
 
+@app.route('/snakes')
+def snaketypes():
+	return render_template('snaketypes.html')
+
 if __name__ == '__main__':
 	app.run(debug=True)
     
